@@ -1,7 +1,7 @@
 /*
 Group Members:
 - Ariel Penaloza
-- Estefania Reyes Carrazc
+- Estefania Reyes Carrazco
 - Manuel Perez
 - Angie Alvarez
 Date: 01-29-2026
@@ -21,7 +21,7 @@ public class BlackJack {
 
     public static void main(String[] args) {
 
-        //Statistics
+        //initializes Statistics
         int wins = 0;
         int losses = 0;
         int rounds = 0;
@@ -65,19 +65,26 @@ public class BlackJack {
             ties++;
         }
     }
-    
-        System.out.println("Play Again? (y/n): Keep Gambling?");
+    //Valid response
+        while(true){
+        System.out.println("Play Again? (y/n): Keep Gambling?"); //prompts for user input
         String newgame = scanner.nextLine().trim().toLowerCase();
         
-        if(newgame.equals("no")||newgame.equals("n")){
+        if(newgame.equals("no") || newgame.equals("n")){ 
             playAgain = false;
-            System.out.println("Wins: " + wins);
+            System.out.println("Wins: " + wins); //shows stats when player decides to stop playing
         	System.out.println("Losses: " + losses);
         	System.out.println("Ties: " + ties);
         	System.out.println("Rounds: " + rounds);
-        } else if (namegame)
-
-
+            break; //break allowes game to emd
+        } else if (newgame.equals("y") || newgame.equals("yes")) { //if yes a new game repeats
+            playAgain = true;
+            break; 
+        } else {
+            System.out.println("Please type y or n.");
+        }
+    }
+        
         }
         scanner.close();
    }
