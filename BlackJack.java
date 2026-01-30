@@ -5,7 +5,7 @@ Group Members:
 - Manuel Perez
 - Angie Alvarez
 Date: 01-29-2026
-Enhancement: 
+Enhancement: Multiple Rounds
 */
 
 import java.util.Random;
@@ -66,10 +66,17 @@ public class BlackJack {
         }
     }
     
-        System.out.println("Play Again? (y/n): Keep Gambling");
-        String newgame = scanner.nextLine();
+        System.out.println("Play Again? (y/n): Keep Gambling?");
+        String newgame = scanner.nextLine().trim().toLowerCase();
+        
+        if(newgame.equals("no")||newgame.equals("n")){
+            playAgain = false;
+            System.out.println("Wins: " + wins);
+        	System.out.println("Losses: " + losses);
+        	System.out.println("Ties: " + ties);
+        	System.out.println("Rounds: " + rounds);
+        } else if (namegame)
 
-        playAgain = newgame.equals("y");
 
         }
         scanner.close();
@@ -92,10 +99,6 @@ public class BlackJack {
             int temp = DECK[i];
             DECK[i] = DECK[index];
             DECK[index] = temp;
-        }
-        System.out.println("printed deck");
-        for (int i = 0; i < DECK.length; i++) {
-            System.out.println(DECK[i] + " ");
         }
     }
 
